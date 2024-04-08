@@ -1,0 +1,48 @@
+
+
+/*# sourceMappingURL=style.css.map */
+a{
+    text-decoration: none;
+}
+ul{
+    list-style-type:none;
+}
+#bandeau{
+    background-color: yellow;
+    display: flex;
+    justify-content: center;
+    align-content: space-between;
+    padding: 25px 0 ;
+}
+#bandeau #menuprincipal ul{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+#bandeau #menuprincipal ul a{
+padding: 0px 20px 0px 20px;
+color: blue;
+
+}
+
+#propos h1{
+    color: blue;
+    text-align: center;
+}
+
+.footer{
+    background-color: yellow;
+    color: blue;
+    display: flex;
+
+    
+}
+#contact .footer a{
+    display: flex;
+    justify-content: flex-start;
+}
+#mentions .footer a{
+    display: flex;
+    justify-content: flex-end;
+}
+
