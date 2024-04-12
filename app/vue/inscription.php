@@ -2,7 +2,7 @@
 
 <h3>Page d'inscription</h3>
     <div id="form">
-        <form action="?action=inscription" method="post">
+        <form action="?action=register" method="post">
 
             <p><label for="login"> pseudo </label>
                 <input type="text" name="login" 

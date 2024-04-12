@@ -4,7 +4,7 @@
 *	Controleur secondaire : monProfil
 */
 
-if ( $_SERVER["SCRIPT_FILENAME"] == str_replace(DIRECTORY_SEPARATOR, '/',  __FILE__) ) {
+if ($_SERVER["SCRIPT_FILENAME"] == __FILE__) {
 	// Un MVC utilise uniquement ses requêtes depuis le contrôleur principal : index.php
     die('Erreur : '.basename(__FILE__));
 }

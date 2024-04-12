@@ -10,13 +10,13 @@ if ( $_SERVER["SCRIPT_FILENAME"] == str_replace(DIRECTORY_SEPARATOR, '/',  __FIL
         <form action="?action=connexion" method="post">
 
                     
-            <p><label for="mail"> mail </label>
-                <input type="text" name="mail" 
-                    placeholder="Your mail" value=<?php echo $_POST["mail"] ?? ''?>></p>
+            <p><label for="email"> mail </label>
+                <input type="text" name="email" 
+                    placeholder="Votre mail" value=<?php echo $_POST["email"] ?? ''?>></p>
                     
-            <p><label for="password">Password </label>
-                <input type="text" name="password" 
-                    placeholder="Your password" value=<?php echo $_POST["mdp"] ?? ''?>></p>
+            <p><label for="mdp">Password </label>
+                <input type="text" name="mdp" 
+                    placeholder="Votre mot de passe" value=<?php echo $_POST["mdp"] ?? ''?>></p>
                 <input type="submit" value="Connexion">
             <a href="./?action=register">Inscription</a>
         </form>

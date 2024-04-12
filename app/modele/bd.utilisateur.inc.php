@@ -25,7 +25,7 @@ function getUtilisateurByMailU($mailU) {
     try {
         $cnx = connexionPDO();
         $req = $cnx->prepare("select * from utilisateur where email=:email");
-        $req->bindValue(':mail', $mailU, PDO::PARAM_STR);
+        $req->bindValue(':email', $mailU, PDO::PARAM_STR);
         $req->execute();
         
         $resultat = $req->fetch(PDO::FETCH_ASSOC);
@@ -35,13 +35,13 @@ function getUtilisateurByMailU($mailU) {
     return $resultat;
 }
 
-function addUtilisateur($mail, $mdp, $pseudo, $nom , $prenom, $naissance, $genre) {
+function addUtilisateur($email, $mdp, $pseudo, $nom , $prenom, $naissance, $genre) {
     try {
         $cnx = connexionPDO();
 
         $mdpCrypt = crypt($mdp, "sel");
-        $req = $cnx->prepare("insert into utilisateur (mail, password, pseudo, nom, prenom, naissance, genre) values(:mail,:mdp,:pseudo,:nom,:prenom,:naissance,:genre)");
-        $req->bindValue(':mail', $mail, PDO::PARAM_STR);
+        $req = $cnx->prepare("insert into utilisateur (email, mdp, pseudo, nom, prenom, naissance, genre) values(:email,:mdp,:pseudo,:nom,:prenom,:naissance,:genre)");
+        $req->bindValue(':email', $email, PDO::PARAM_STR);
         $req->bindValue(':mdp', $mdpCrypt, PDO::PARAM_STR);
         $req->bindValue(':pseudo', $pseudo, PDO::PARAM_STR);
         $req->bindValue(':nom', $nom, PDO::PARAM_STR);
