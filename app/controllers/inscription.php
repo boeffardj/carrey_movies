@@ -4,29 +4,30 @@ if ( $_SERVER["SCRIPT_FILENAME"] == str_replace(DIRECTORY_SEPARATOR, '/',  __FIL
     die('Erreur : '.basename(__FILE__));
 }
 
+$inscrit = false;
+
 include_once RACINE . "/modele/bd.utilisateur.inc.php";
-if (isset($_POST["mail"]) && isset($_POST["mdp"]) && isset($_POST["pseudo"])) {
-
-if ($_POST["email"] != "" && $_POST["mdp"] != "" && $_POST["pseudo"] != "" && $_POST["prenom"] && $_POST["nom"] && $_POST["genre"] && $_POST["naissance"]) {
-    $maiU = $_POST["email"];
-    $mdp = $_POST["mdp"];
-    $pseudo = $_POST["pseudo"];
-    $prenom = $_POST["prenom"];
-    $nom = $_POST["nom"];
-    $genre = $_POST["genre"];
-    $naissance = $_POST["naissance"];
-
-    // enregistrement des donnees
-    $ret = addUtilisateur($email, $mdp, $pseudo, $prenom, $nom , $genre, $naissance);
-    if ($ret) {
-        $inscrit = true;
-    } else {
-        $msg = "l'utilisateur n'a pas été enregistré.";
+if (isset($_POST["email"]) && isset($_POST["password"]) && isset($_POST["pseudo"])) {
+    
+    if ($_POST["email"] != "" && $_POST["password"] != "" && $_POST["pseudo"] != "") {
+        $email = $_POST["email"];
+        $password = $_POST["password"];
+        $pseudo = $_POST["pseudo"];
+        $prenom = empty ($_POST["prenom"])? NULL: $_POST["prenom"];
+        $nom = empty ($_POST["nom"])? NULL: $_POST["nom"];
+        $genre = empty ($_POST["genre"])? NULL: $_POST["genre"];
+        $naissance = empty ($_POST["naissance"])? NULL: $_POST["naissance"];
+        // enregistrement des donnees
+        $ret = addUtilisateur($email, $password, $pseudo, $nom, $prenom, $naissance , $genre);
+        if ($ret) {
+            $inscrit = true;
+        } else {
+            $msg = "l'utilisateur n'a pas été enregistré.";
+        }
     }
-}
-else {
-$msg="Renseigner tous les champs...";    
-}
+    else {
+        $msg="Renseigner tous les champs...";    
+    }
 }
 if ($inscrit) {
     // appel du script de vue qui permet de gerer l'affichage des donnees

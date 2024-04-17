@@ -53,6 +53,7 @@ function addUtilisateur($email, $mdp, $pseudo, $nom , $prenom, $naissance, $genr
     } catch (PDOException $e) {
         die( "Erreur !: " . $e->getMessage() );
     }
+    var_dump($resultat);
     return $resultat;
 }
 
